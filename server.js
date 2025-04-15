@@ -16,8 +16,14 @@ app.use((req, res, next) => {
     );
     next();
 });
+
 // Servir les fichiers statiques depuis le dossier "public"
 app.use(express.static('public')); // Permet de servir le HTML, CSS et JS contenus dans "public"
+
+// Route principale
+app.get('/', (req, res) => {
+    res.send('Bienvenue sur mon application chat !');
+});
 
 // Gestion des connexions Socket.IO
 io.on('connection', (socket) => {
@@ -39,10 +45,8 @@ io.on('connection', (socket) => {
     });
 });
 
-
-
 // Lancer le serveur
-const PORT = 3000; // Port par défaut pour le serveur
-server.listen(PORT, () => {
-    console.log(`Serveur démarré sur le port ${PORT}`);
+const port = process.env.PORT || 10000;
+server.listen(port, '0.0.0.0', () => {
+    console.log(`Serveur lancé sur le port ${port}`);
 });
