@@ -1,1 +1,50 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* En-tête */
+header {
+    background-color: #007BFF;
+    color: white;
+    width: 100%;
+    text-align: center;
+    padding: 1rem;
+}
+
+/* Zone principale */
+main {
+    margin-top: 20px;
+    width: 90%;
+    max-width: 600px;
+}
+
+/* Zone des messages */
+#message-list {
+    border: 1px solid #ddd;
+    padding: 10px;
+    height: 200px;
+    overflow-y: auto;
+    margin-bottom: 10px;
+}
+
+/* Champ de saisie */
+#message-input {
+    width: 80%;
+    padding: 10px;
+}
+
+button {
+    padding: 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
 
