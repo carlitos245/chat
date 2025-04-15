@@ -20,23 +20,29 @@ document.addEventListener('DOMContentLoaded', () => {
         messageList.appendChild(newMessage);
     });
 });
+// 1. Fonction pour Error
+function displayError(message) {
+    const errorElement = document.getElementById('email-error');
+    errorElement.textContent = message;
+    errorElement.style.display = 'block';
+}
 // 1. Fonction pour valider les adresses e-mail
 function validateEmail(email) {
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return regex.test(email);
 }
 
-// 2. Logique principale ou autres fonctions (si nécessaires)
-console.log('Script chargé avec succès.');
-
-// 3. Validation de l'e-mail avant soumission
 document.getElementById('form').addEventListener('submit', (e) => {
     const email = document.getElementById('email').value;
+    const errorElement = document.getElementById('email-error');
+    errorElement.style.display = 'none'; // Réinitialiser l'erreur
+
     if (!validateEmail(email)) {
-        alert('Veuillez entrer un email valide !');
-        e.preventDefault(); // Empêche l'envoi du formulaire si l'e-mail est incorrect
+        displayError('Veuillez entrer un email valide !');
+        e.preventDefault();
     }
 });
+
 
 function connectUser() {
     const pseudo = document.getElementById('pseudo').value.trim();
